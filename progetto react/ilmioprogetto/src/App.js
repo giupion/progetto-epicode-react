@@ -11,12 +11,12 @@ import {Container}   from 'react-bootstrap'
 
 function App() {
   return (
-    <Container>
-      <MyNav />
-      <MyDropdown/>
-      <MyFilms />
+    <div className="mio">
+      <MyNav/>
+      <MyDropdown />
+      <MyFilms   />
       <MyFooter />
-    </Container>
+  </div>
   )
 }
 
