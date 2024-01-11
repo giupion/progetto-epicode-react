@@ -1,25 +1,56 @@
 import React from 'react'
 import {Component} from 'react'
+import { urlApi } from '../data';
+import Logo from "../assets/logo.png";
 
 
-export default class MyFilms extends Component {
 
-componentDidMount = async () => {
-    try {
-     const response = await fetch("https://striveschool.herokuapp.com/api/reservation")
-        if(response.ok) {
-             const data = await response.json() 
-             this.setState({ reservations: data })
-   } else {
-       console.log('error while fetching')}
-   } catch(e) { console.log(e) }}
-
+export default class TrendingNowComp extends Component {
+    state = { 
+        objTrending : [],
+      
+    }
     
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
+    componentDidMount() {
+        this.props.filmId.forEach((movie, index) => {
+          fetch(urlApi  + movie)
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error('Something went wrong');
+            })
+            .then((responseJson) => {
+              
+              const isDuplicate = this.state.objTrending.some(item => item.imdbID === responseJson.imdbID);
+      
+             
+              if (!isDuplicate) {
+                this.setState((prevState) => ({
+                  objTrending: [...prevState.objTrending, responseJson],
+                }));
+              }
+      
+              console.log(this.state);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+      }
+      
+    render() {
+        console.log(this.state)
+        return (
+          this.state.objTrending.map((e, index) => (
+            <div key={index} className="col mb-2 px-1 position-relative">
+            <div className="top-left-image" style={{ position: 'absolute', top: 5, left: 10, zIndex: 2 }}>
+              <img className="img-fluid" src={Logo} alt='logoNetflix' />
+            </div>
+            <img className="img-fluid" src={e.Poster} alt={e.Plot} />
+          </div>
+        ))
+          );
+          
   }
 }

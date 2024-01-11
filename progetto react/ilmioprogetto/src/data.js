@@ -1,0 +1,1 @@
+export const urlApi = ' http://www.omdbapi.com/?apikey=1beafe10&s=[avengers]';
