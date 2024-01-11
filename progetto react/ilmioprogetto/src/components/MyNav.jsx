@@ -23,7 +23,7 @@ const MyNavbar = () => {
         <div className="d-flex align-items-center justify-content-between" style={{width: "7%"}}>
             <Navbar.Text><FaSearch /></Navbar.Text>
             <div id="kids">KIDS</div>
-            <Navbar.Text><BsBell /></Navbar.Text>
+            <Navbar.Text><FaBell /></Navbar.Text>
             <Navbar.Text><FaUser /></Navbar.Text>
         </div>
     </Navbar>

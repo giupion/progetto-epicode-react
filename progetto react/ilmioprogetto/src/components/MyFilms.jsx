@@ -1,56 +1,56 @@
-import React from 'react'
-import {Component} from 'react'
-import { urlApi } from '../data';
-import Logo from "../assets/logo.png";
+import React, { Component } from 'react';
+import Key from '../password';
+
+class GalleriaUnoComp extends Component {
+
+    state = {
+      data: null,
+      loading: true,
+      error: null,
+    };
+  
 
 
+  componentDidMount() {
+    const api = "http://www.omdbapi.com/?apikey="+Key+"&s=harry%20potter";
 
-export default class TrendingNowComp extends Component {
-    state = { 
-        objTrending : [],
-      
-    }
-    
-    componentDidMount() {
-        this.props.filmId.forEach((movie, index) => {
-          fetch(urlApi  + movie)
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              }
-              throw new Error('Something went wrong');
-            })
-            .then((responseJson) => {
-              
-              const isDuplicate = this.state.objTrending.some(item => item.imdbID === responseJson.imdbID);
-      
-             
-              if (!isDuplicate) {
-                this.setState((prevState) => ({
-                  objTrending: [...prevState.objTrending, responseJson],
-                }));
-              }
-      
-              console.log(this.state);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+    fetch(api)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          data: data,
+          loading: false,
         });
-      }
-      
-    render() {
-        console.log(this.state)
-        return (
-          this.state.objTrending.map((e, index) => (
-            <div key={index} className="col mb-2 px-1 position-relative">
-            <div className="top-left-image" style={{ position: 'absolute', top: 5, left: 10, zIndex: 2 }}>
-              <img className="img-fluid" src={Logo} alt='logoNetflix' />
-            </div>
-            <img className="img-fluid" src={e.Poster} alt={e.Plot} />
-          </div>
-        ))
-          );
+      })
+      .catch((error) => {
+        this.setState({
+          error: error,
+          loading: false,
+        });
+      });
+  }
+
+  render() {
+    const { data, loading, error } = this.state;
+    console.log(data)
+    return (
+      <div>
+
+        {loading && <p>Loading...</p>}
+
+        {error && <p>Error: {error.message}</p>}
+
+        {data && (
           
+          <div className="carousel-container">
+            {data.Search.map((item) => (
+              <div className="carousel-slide" key={item.imdbID}><img src={item.Poster} alt={item.Title} /></div>
+            ))}      
+        </div>      
+        )}
+      </div>
+    );
   }
 }
+
+export default GalleriaUnoComp;
