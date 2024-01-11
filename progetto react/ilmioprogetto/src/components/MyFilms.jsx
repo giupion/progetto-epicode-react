@@ -12,7 +12,7 @@ class GalleriaUnoComp extends Component {
 
 
   componentDidMount() {
-    const api = "http://www.omdbapi.com/?apikey="+Key+"&s=harry%20potter";
+    const api = "http://www.omdbapi.com/?apikey=1beafe10&s&s=star%20wars";
 
     fetch(api)
       .then((res) => res.json())
@@ -21,6 +21,7 @@ class GalleriaUnoComp extends Component {
           data: data,
           loading: false,
         });
+        console.log(data)
       })
       .catch((error) => {
         this.setState({
