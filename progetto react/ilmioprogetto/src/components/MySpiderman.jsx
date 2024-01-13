@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Key from '../password';
+import { Image,Button,Row ,Col,Card,ListGroup,Container } from "react-bootstrap";
 
-class MyFilms extends Component {
+class MySpiderman extends Component {
 
     state = {
       data: null,
@@ -43,9 +43,15 @@ class MyFilms extends Component {
 
         {data && (
           
-          <div className="carousel-container">
+          <div className="carousel-container me-5 mb-5">
             {data.Search.map((item) => (
-              <div className="carousel-slide" key={item.imdbID}><img src={item.Poster} alt={item.Title} /></div>
+             
+              <div className="carousel-slide" key={item.imdbID}>
+                
+                <img src={item.Poster} alt={item.Title}  />
+              
+              </div>
+            
             ))}      
         </div>      
         )}
@@ -54,4 +60,4 @@ class MyFilms extends Component {
   }
 }
 
-export default MyFilms;
+export default MySpiderman;
