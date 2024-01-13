@@ -46,9 +46,9 @@ class MySpiderman extends Component {
           <div className="carousel-container me-5 mb-5">
             {data.Search.map((item) => (
              
-              <div className="carousel-slide" key={item.imdbID}>
+              <div className="carousel-slide mb-5 me-5 img-fluid" key={item.imdbID}>
                 
-                <img src={item.Poster} alt={item.Title}  />
+                <img src={item.Poster} alt={item.Title}  style={{ width:"300px" ,height:"400px" }} />
               
               </div>
             

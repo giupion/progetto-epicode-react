@@ -43,10 +43,10 @@ class MyBatman extends Component {
 
         {data && (
           
-          <div className="carousel-container">
+          <div className="carousel-container mb-5 me-5">
             {data.Search.map((item) => (
-              <div className="carousel-slide " key={item.imdbID} >
-                <img src={item.Poster} alt={item.Title}   />
+              <div className="carousel-slide  mb-5 me-5 "  key={item.imdbID} >
+                <img src={item.Poster} alt={item.Title} style={{ width:"300px" ,height:"400px" }}   />
                 </div>
             ))}      
         </div>      

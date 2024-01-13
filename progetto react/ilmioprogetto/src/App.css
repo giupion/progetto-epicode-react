@@ -1,1 +1,6 @@
 .mio{background-color: black !important;}
+
+.row{display:flex;
+justify-content: center;
+align-items: center;
+}

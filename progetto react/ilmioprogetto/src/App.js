@@ -14,12 +14,12 @@ function App() {
     <div className="mio">
       <MyNav/>
       <MyDropdown />
-      <Container >
-      <Row>
-                <Col xs={4} md={4} lg={4}>
+      <Container className="d-flex">
+      <Row className="mb-5 me-5 row">
+                <Col xs={4} md={4} lg={4} className="mb-5 me-5 ">
       <MySpiderman   />
       </Col>
-      <Col xs={4} md={4} lg={4}>
+      <Col xs={4} md={4} lg={4} className="mb-5 me-5 " >
       <MyBatman  />
       </Col>
               </Row>
