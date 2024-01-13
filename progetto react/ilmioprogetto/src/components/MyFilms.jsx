@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Key from '../password';
 
-class GalleriaUnoComp extends Component {
+class MyFilms extends Component {
 
     state = {
       data: null,
@@ -12,7 +12,7 @@ class GalleriaUnoComp extends Component {
 
 
   componentDidMount() {
-    const api = "http://www.omdbapi.com/?apikey=1beafe10&s&s=star%20wars";
+    const api = "http://www.omdbapi.com/?apikey=1beafe10&s&s=spider%20man";
 
     fetch(api)
       .then((res) => res.json())
@@ -54,4 +54,4 @@ class GalleriaUnoComp extends Component {
   }
 }
 
-export default GalleriaUnoComp;
+export default MyFilms;
