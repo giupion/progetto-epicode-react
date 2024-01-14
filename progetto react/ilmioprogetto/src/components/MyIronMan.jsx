@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image,Button,Row ,Col,Card,ListGroup } from "react-bootstrap";
 
-class MyBatman extends Component {
+class MyIronMan extends Component {
 
     state = {
       data: null,
@@ -12,7 +12,7 @@ class MyBatman extends Component {
 
 
   componentDidMount() {
-    const api = "http://www.omdbapi.com/?apikey=1beafe10&s&s=batman";
+    const api = "http://www.omdbapi.com/?apikey=1beafe10&s&s=Iron-man";
 
     fetch(api)
       .then((res) => res.json())
@@ -43,7 +43,7 @@ class MyBatman extends Component {
 
         {data && (
           
-          <div className="carousel-container mb-5 me-5 ">
+          <div className="carousel-container mb-5 me-5">
             {data.Search.map((item) => (
               <div className="carousel-slide  mb-5 me-5 "  key={item.imdbID} >
                 <img src={item.Poster} alt={item.Title} style={{ width:"300px" ,height:"400px" }}   />
@@ -56,4 +56,4 @@ class MyBatman extends Component {
   }
 }
 
-export default MyBatman;
+export default MyIronMan;

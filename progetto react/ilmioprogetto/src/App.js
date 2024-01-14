@@ -5,7 +5,8 @@ import MyDropdown from './components/MyDropdown.jsx'
 import MySpiderman from './components/MySpiderman'
 import MyFooter from './components/MyFooter'
 import MyBatman from './components/MyBatman'
-import {  Dropdown } from "react-bootstrap";
+import MyIronMan from './components/MyIronMan'
+import {  Dropdown } from './components/MyIronMan.jsx';
 import { Image,Button,Row ,Col,Container,Card,ListGroup } from "react-bootstrap";
 
 
@@ -14,16 +15,19 @@ function App() {
     <div className="mio">
       <MyNav/>
       <MyDropdown />
-      <Container className="d-flex">
-      <Row className="mb-5 me-5 row">
-                <Col xs={4} md={4} lg={4} className="mb-5 me-5 ">
+     
+      <Row className="mb-5 me-5 row d-flex flex-row">
+                <Col xs={3} md={3} lg={3} className="mb-5 me-5 ">
       <MySpiderman   />
       </Col>
-      <Col xs={4} md={4} lg={4} className="mb-5 me-5 " >
+      <Col xs={3} md={3} lg={3} className="mb-5 me-5 " >
       <MyBatman  />
       </Col>
+      <Col xs={3} md={3} lg={3} className="mb-5 me-5 " >
+      <MyIronMan  />
+      </Col>
               </Row>
-      </Container>
+  
       <MyFooter />
   </div>
   )
